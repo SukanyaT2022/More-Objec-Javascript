@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle</title>
+</head>
+
+<body>
+    <form>Enter side 1
+
+        <input type="text" name="txtSideOne" id="txtSideOne"><br>
+        Enter side 2
+        <input type="text" name="txtSideTwo" id="txtSideTwo"><br>
+        Enter 3
+        <input type="text" name="txtSideThree" id="txtSideThree"><br>
+
+        <input type="button" value="area of triangle" onclick="triangleArea()">
+
+        <input type="button" value="triangle perimeter" onclick="trianglePerimeter()">
+    </form>
+    <script>
+        function triangle(s1, s2, s3) {
+            this.side1 = s1,
+                this.side2 = s2,
+                this.side3 = s3,
+                this.area = function () {
+                    s = (this.side1 + this.side2 + this.side3) / 2
+                    return Math.sqrt(s * (s - this.side1) * (s - this.side2) * (s - this.side3));
+                }
+            this.perimeter = function () {
+                return this.side1 + this.side2 + this.side3
+            }
+
+        }
+        function triangleArea() {
+
+            s1 = parseFloat(document.getElementById("txtSideOne").value)
+            s2 = parseFloat(document.getElementById("txtSideTwo").value)
+            s3 = parseFloat(document.getElementById("txtSideThree").value)
+            var obj = new triangle(s1, s2, s3)
+
+            alert(obj.area())
+        }
+        function trianglePerimeter() {
+            s1 = parseFloat(document.getElementById("txtSideOne").value)
+            s2 = parseFloat(document.getElementById("txtSideTwo").value)
+            s3 = parseFloat(document.getElementById("txtSideThree").value)
+            var obj = new triangle(s1, s2, s3)
+
+            alert(obj.perimeter())
+        }
+    </script>
+</body>
+
+
+
+</html>
